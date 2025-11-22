@@ -1,4 +1,4 @@
-outube link if not understand
+youtube link if not understand
 https://www.youtube.com/watch?v=oMqf5xV1QsM&ab_channel=Pentestblog
 
 
