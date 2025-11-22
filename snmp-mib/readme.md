@@ -16,7 +16,7 @@ export MIBDIRS="/usr/share/snmp/mibs:~/.snmp/mibs"
 export MIBS=+ALL
 
 
-<img width="1340" height="396" alt="image" src="https://github.com/user-attachments/assets/b9135951-69d9-4c64-8dc8-c7af4c9f017b" />
+
 
 
 1
