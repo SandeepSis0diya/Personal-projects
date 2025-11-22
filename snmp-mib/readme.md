@@ -2,6 +2,9 @@
 
 sudo git clone https://github.com/net-snmp/net-snmp.git
 
+<img width="1270" height="841" alt="image" src="https://github.com/user-attachments/assets/bc6b36c4-6e2e-4d80-8a68-927290b17ad0" />
+
+
 
 
 sudo mkdir -p /usr/share/snmp/mibs
