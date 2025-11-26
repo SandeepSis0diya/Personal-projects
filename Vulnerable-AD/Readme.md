@@ -53,6 +53,7 @@ Registered ServicePrincipalNames for CN=sqlsvc, CN=Users, DC=sandeep, DC=local
 
 <img width="652" height="92" alt="image" src="https://github.com/user-attachments/assets/746788bc-6807-4e6a-bbb2-a064815d74a7" />
 <br>
+
 ### 🔎 STEP 3 — Verify the SPN
 
 Run the following command to confirm the SPN is properly registered:
