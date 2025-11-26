@@ -92,7 +92,7 @@ Create new Group Management
 
     New-ADGroup -Name "Management" -GroupScope Global -GroupCategory Security
     
-Write owner to Management group
+sqlsvc get Write owner to Management group
 
     dsacls "CN=Management,CN=Users,DC=sandeep,DC=local" /G "sandeep\sqlsvc:WO"
 
