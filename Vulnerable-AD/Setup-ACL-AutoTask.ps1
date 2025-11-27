@@ -1,3 +1,6 @@
+# Auto bypass execution policy when running with .\
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
 # -----------------------------
 # Create folder for scripts
 # -----------------------------
@@ -19,9 +22,6 @@ Add-Content -Path "C:\Scripts\acl_log.txt" -Value "$(Get-Date) - DSACLS commands
 
 $ACLScriptPath = "C:\Scripts\Set-ACL.ps1"
 $ACLScript | Out-File -FilePath $ACLScriptPath -Encoding UTF8 -Force
-
-# Allow the script to run
-Set-ExecutionPolicy Bypass -Force
 
 # -----------------------------
 # Create Scheduled Task (Startup + every 3 hours)
