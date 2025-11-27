@@ -33,6 +33,16 @@ Run the following PowerShell scripts **in this exact order** to build the vulner
         Set-MpPreference -MAPSReporting 0
         Set-MpPreference -SubmitSamplesConsent 2
 
+## 🔐 Add Users to Remote Management Users Group
+
+Run the following commands in an **elevated Command Prompt** (Run as Administrator) on the target machine to add users `harry`, `peter`, and `sqlsvc` to the **Remote Management Users** local group:
+
+```cmd
+net localgroup "Remote Management Users" harry /add
+net localgroup "Remote Management Users" peter /add
+net localgroup "Remote Management Users" sqlsvc /add
+
+
 
 
 ### 🛠️ Step 1 — Create the sqlsvc User in Active Directory
