@@ -1,3 +1,23 @@
+# 🔥 Vulnerable Active Directory Lab
+
+Welcome to the Vulnerable Active Directory Lab! This lab is designed to help you practice common Active Directory attack techniques in a safe, controlled environment.
+
+---
+
+## 🧪 Lab Setup — Script Execution Order
+
+Run the following PowerShell scripts **in this exact order** to build the vulnerable AD environment:
+
+| Step | Script                      | Description                                                   |
+|-------|-----------------------------|---------------------------------------------------------------|
+| 1️⃣    | `Rename-And-Restart.ps1`    | Rename machine and reboot before AD DS installation.          |
+| 2️⃣    | `Install-ADDS-And-Promote.ps1` | Install Active Directory Domain Services and promote to DC.  |
+| 3️⃣    | `Create-AD-Users.ps1`       | Create domain users, groups, OUs, and objects needed for lab. |
+| 4️⃣    | `Setup-ACL-AutoTask.ps1`    | Setup weak ACL permissions and scheduled tasks to persist them.|
+
+---
+## After Follow this steps
+
 ###  ▶️  Run this command to off defender
 
 #### Disable Real-Time Monitoring
