@@ -6,7 +6,13 @@
 
 ##### Open Server Manager
 #### → Navigate to Tools
+<br>
+<img width="832" height="64" alt="image" src="https://github.com/user-attachments/assets/e5342355-5290-4a85-b92f-194d6f5feb5b" />
+<br>
+
 #### → Select Active Directory Users and Computers.
+
+<img width="395" height="215" alt="image" src="https://github.com/user-attachments/assets/3b18db66-aabd-4dd7-bdcf-d9c59b56ca17" />
 
 ##### In the left panel, expand your domain and click on Users.
 
@@ -15,28 +21,29 @@
 
 #### Fill in the required details:
 
+#### Configure password options:
+
+
+<img width="1053" height="483" alt="image" src="https://github.com/user-attachments/assets/19c5af51-a6fe-40af-995f-cbbf94d7b075" />
+
         Field	Value
         First Name	SQL
         Last Name	Service
         User logon name	sqlsvc
-        
         Click Next, then set the password:
-    
+        
+<img width="683" height="460" alt="image" src="https://github.com/user-attachments/assets/7835f7a9-4574-49a0-9de4-0f10364d146f" />
+
+<br>
+            
         Password: Password@123
-
-
-#### Configure password options:
-
+        
 #### ✔️ Password never expires
 
 #### ❌ User must change password at next logon (leave unchecked)
 
 #### Click Finish to create the user.
 
-<img width="1053" height="483" alt="image" src="https://github.com/user-attachments/assets/19c5af51-a6fe-40af-995f-cbbf94d7b075" />
-
-<img width="683" height="460" alt="image" src="https://github.com/user-attachments/assets/7835f7a9-4574-49a0-9de4-0f10364d146f" />
-<br>
 
 <img width="680" height="454" alt="image" src="https://github.com/user-attachments/assets/f6cd50f9-083f-466a-83ba-64d4b4ff7bf7" />
 <br>
