@@ -110,13 +110,14 @@ $krb5tgs$23$sqlsvc$SANDEEP.LOCAL...
 <img width="955" height="326" alt="image" src="https://github.com/user-attachments/assets/4ea6e10c-7ed2-4399-8419-7ed22273c63e" />
 
 <img width="1335" height="470" alt="image" src="https://github.com/user-attachments/assets/b92ace06-be0b-4e87-8273-87ceb4ec1a3a" />
+<br>
 
 
-Create new Group Management 
+### Create new Group Management 
 
     New-ADGroup -Name "Management" -GroupScope Global -GroupCategory Security
     
-sqlsvc get Write owner to Management group
+### sqlsvc get Write owner to Management group
 
     dsacls "CN=Management,CN=Users,DC=sandeep,DC=local" /G "sandeep\sqlsvc:WO"
 <br>
@@ -124,7 +125,7 @@ sqlsvc get Write owner to Management group
 
 
 
-Generic write on peter
+### Generic write on peter
 
     dsacls "CN=peter,CN=Users,DC=sandeep,DC=local" /G "sandeep\Management:GW"
 <br>
@@ -135,12 +136,12 @@ Generic write on peter
 
      Create the missing folders manually (recommended)
 
-Run this inside Evil-WinRM:
+### Run this inside Evil-WinRM:
 
     New-Item -ItemType Directory -Path "C:\Users\peter\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline" -Force
 
 
-Then write the fake credential:
+### Then write the fake credential:
 
     "harry - harry12123" | Add-Content "C:\Users\peter\AppData\Roaming\Microsoft\Windows\Power
 
@@ -154,7 +155,7 @@ Then write the fake credential:
 
    
 
-Harry Is Member of Rdp group So that it cn make remote desktop connection
+### Harry Is Member of Rdp and winrm group So that it cn make remote desktop connection
 
 
 
