@@ -1,4 +1,4 @@
-### Run this command to off defende
+###  ▶️  Run this command to off defender
 
 #### Disable Real-Time Monitoring
         Set-MpPreference -DisableRealtimeMonitoring $true
