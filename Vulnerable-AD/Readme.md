@@ -95,6 +95,9 @@ Create new Group Management
 sqlsvc get Write owner to Management group
 
     dsacls "CN=Management,CN=Users,DC=sandeep,DC=local" /G "sandeep\sqlsvc:WO"
+<br>
+<img width="862" height="138" alt="image" src="https://github.com/user-attachments/assets/89db6e29-18fb-4561-a24a-bbf2ccde7a9d" />
+
 
 
 Generic write on leo
