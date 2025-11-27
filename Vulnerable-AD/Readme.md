@@ -1,3 +1,20 @@
+### Run this command to off defende
+
+#### Disable Real-Time Monitoring
+        Set-MpPreference -DisableRealtimeMonitoring $true
+
+#### Disable all main Defender protection features
+        Set-MpPreference -DisableBehaviorMonitoring $true
+        Set-MpPreference -DisableIOAVProtection $true
+        Set-MpPreference -DisableScriptScanning $true
+        Set-MpPreference -DisableBlockAtFirstSeen $true
+
+#### Disable Cloud-based protection
+        Set-MpPreference -MAPSReporting 0
+        Set-MpPreference -SubmitSamplesConsent 2
+
+
+
 ### 🛠️ Step 1 — Create the sqlsvc User in Active Directory
 
 #### Follow the steps below to create a dedicated SQL service account in Active Directory.
