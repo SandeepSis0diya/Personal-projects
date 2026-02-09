@@ -14,7 +14,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import A4
 
 # ================= CONFIG =================
-BOT_TOKEN = "8555457287:AAFs7Ie7byliw7FP-kQtG6Nf2xojII8qKc8"
+BOT_TOKEN = "your_telegram_bot_token_here"
 NETWORK_RANGE = "192.168.29.0/24"
 
 NUCLEI_PATH = "/usr/bin/nuclei"
